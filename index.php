@@ -1,38 +1,33 @@
 <?php
-require_once 'variables.php';
-require_once 'functions.php';
+require_once 'includes/header.php';
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
+<div class="d-flex justify-content-evenly">
+    <?php
+    $i = 0;
+    foreach ($beanies as $id => $beanie) {
+        $i++;
+        if ($i > 3) {
+            break;
+        }
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes beaux bonnets !</title>
-</head>
-
-<body>
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prix HT</th>
-                <th>Prix TTC</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            /** @var array $beanie */
-            foreach ($beanies as $key => $beanie) {
-                displayBeanieLine($key, $beanie);
-            }
-            ?>
-        </tbody>
-    </table>
-</body>
-
-</html>
+        // afficher un bonnet
+    ?>
+        <div class="card m-2">
+            <img src="img/<?= $beanie['image'] ?>" class="card-img-top" alt="<?= $beanie['image'] ?>">
+            <div class="card-body">
+                <h5 class="card-title"><?= $beanie['name']; ?></h5>
+                <p class="card-text"><?= $beanie['description']; ?></p>
+                <a href="#" class="btn btn-primary">Ajouter au panier</a>
+            </div>
+        </div>
+    <?php
+    }
+    ?>
+</div>
+<div class="d-flex justify-content-evenly">
+    <a href="list.php" class="btn btn-primary">Voir tous les produits</a>
+</div>
+<?php
+include 'includes/footer.php';
+?>
