@@ -1,7 +1,6 @@
 <?php
 $description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a leo diam. Quisque lorem orci, accumsan quis dolor sed, gravida.";
 
-
 // Images téléchargées sur https://www.headict.com/fr/101-bonnet
 $beanies = [
     42 => [
