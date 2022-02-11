@@ -14,7 +14,7 @@
             <div class="card-body">
                 <h5 class="card-title"><?= $beanie['name']; ?></h5>
                 <p class="card-text"><?= $beanie['description']; ?></p>
-                <a href="#" class="btn btn-primary">Ajouter au panier</a>
+                <a href="?page=cart&id=<?= $id; ?>" class="btn btn-primary">Ajouter au panier</a>
             </div>
         </div>
     <?php
