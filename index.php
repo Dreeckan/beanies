@@ -15,9 +15,12 @@ if (isset($_GET['page']) && array_key_exists($_GET['page'], $pages)) {
 
 $pageTitle = $pages[$page];
 
+ob_start();
 
 include_once 'includes/header.php';
 
 include_once 'pages/' . $page . '.php';
 
 include_once 'includes/footer.php';
+
+ob_end_flush();
