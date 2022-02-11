@@ -22,37 +22,47 @@ function formatPrice(float $price): string
     return number_format($price, 2, ',', ' ');
 }
 
+function findById(array $beanies, int $id): ?Beanie
+{
+    foreach ($beanies as $beanie) {
+        if ($beanie->getId() == $id) {
+            return $beanie;
+        }
+    }
+
+    return null;
+}
+
 /**
  * Affiche une ligne (table HTML) d'un tableau de bonnets
  *
- * @param int $id Identifiant (clé) du bonnet
- * @param array $beanie Les informations d'un bonnet
+ * @param Beanie $beanie Les informations d'un bonnet
  */
-function displayBeanieLine(int $id, array $beanie): void
+function displayBeanieLine(Beanie $beanie): void
 {
     $color = 'blue';
-    if ($beanie['price'] <= 12.0) {
+    if ($beanie->getPrice() <= 12.0) {
         $color = 'green';
     }
 ?>
     <tr>
         <td>
-            <?= $id; ?>
+            <?= $beanie->getId(); ?>
         </td>
         <td>
-            <?= $beanie['name']; ?>
+            <?= $beanie->getName(); ?>
         </td>
         <td style="color: <?= $color; ?>;">
-            <?= formatPrice(withoutVAT($beanie['price'])); ?>€
+            <?= formatPrice(withoutVAT($beanie->getPrice())); ?>€
         </td>
         <td style="color: <?= $color; ?>;">
-            <?= formatPrice($beanie['price']); ?>€
+            <?= formatPrice($beanie->getPrice()); ?>€
         </td>
         <td>
-            <?= $beanie['description']; ?>
+            <?= $beanie->getDescription(); ?>
         </td>
         <td>
-            <a href="?page=cart&id=<?= $id; ?>" class="btn btn-primary">
+            <a href="?page=cart&id=<?= $beanie->getId(); ?>" class="btn btn-primary">
                 Ajouter au panier
             </a>
         </td>

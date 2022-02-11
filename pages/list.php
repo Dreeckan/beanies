@@ -11,9 +11,9 @@
     </thead>
     <tbody>
         <?php
-        /** @var array $beanie */
-        foreach ($beanies as $key => $beanie) {
-            displayBeanieLine($key, $beanie);
+        /** @var Beanie $beanie */
+        foreach ($beanies as $beanie) {
+            displayBeanieLine($beanie);
         }
         ?>
     </tbody>
