@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+require_once 'autoload.php';
 require_once 'variables.php';
 require_once 'functions.php';
 

@@ -3,30 +3,30 @@ $description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a 
 
 // Images téléchargées sur https://www.headict.com/fr/101-bonnet
 $beanies = [
-    42 => [
-        "name"        => "Bonnet en laine",
-        "description" => $description,
-        "price"       => 10.0,
-        "image"       => 'the-fjord-black.jpg',
-    ],
-    12 => [
-        "name"        => "Bonnet en laine bio",
-        "description" => $description,
-        "price"       => 14.0,
-        "image"       => 'the-uniform-low-red-clay.jpg',
-    ],
-    2 => [
-        "name"        => "Bonnet en laine et cachemire",
-        "description" => $description,
-        "price"       => 20.0,
-        "image"       => 'merino-beanie-navy.jpg',
-    ],
-    666 => [
-        "name"        => "Bonnet arc-en-ciel",
-        "description" => $description,
-        "price"       => 12.0,
-        "image"       => 'the-yukon-brim-olive.jpg',
-    ],
+    (new Beanie())
+        ->setId(42)
+        ->setName("Bonnet en laine")
+        ->setDescription($description)
+        ->setPrice(10.0)
+        ->setImage('the-fjord-black.jpg'),
+    (new Beanie())
+        ->setId(12)
+        ->setName("Bonnet en laine bio")
+        ->setDescription($description)
+        ->setPrice(14.0)
+        ->setImage('the-uniform-low-red-clay.jpg'),
+    (new Beanie())
+        ->setId(2)
+        ->setName("Bonnet en laine et cachemire")
+        ->setDescription($description)
+        ->setPrice(20.0)
+        ->setImage('merino-beanie-navy.jpg'),
+    (new Beanie())
+        ->setId(666)
+        ->setName("Bonnet arc-en-ciel")
+        ->setDescription($description)
+        ->setPrice(12.0)
+        ->setImage('the-yukon-brim-olive.jpg'),
 ];
 
 $defaultPassword = 'toto';
