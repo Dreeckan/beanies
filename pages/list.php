@@ -6,6 +6,7 @@
             <th>Prix HT</th>
             <th>Prix TTC</th>
             <th>Description</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>

@@ -4,11 +4,12 @@ $pages = [
     'home'   => 'Bienvenue !',
     'login'  => 'Connexion',
     'logout' => '',
+    'cart'   => 'Votre panier',
 ];
 
 $page = 'home';
 
-if (isset($_GET['page']) && in_array($_GET['page'], $pages)) {
+if (isset($_GET['page']) && array_key_exists($_GET['page'], $pages)) {
     $page = $_GET['page'];
 }
 

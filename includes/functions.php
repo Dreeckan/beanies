@@ -51,6 +51,11 @@ function displayBeanieLine(int $id, array $beanie): void
         <td>
             <?= $beanie['description']; ?>
         </td>
+        <td>
+            <a href="?page=cart&id=<?= $id; ?>" class="btn btn-primary">
+                Ajouter au panier
+            </a>
+        </td>
     </tr>
 <?php
 }
