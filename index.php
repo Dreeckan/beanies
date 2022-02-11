@@ -1,10 +1,11 @@
 <?php
 $pages = [
-    'list'   => 'Tous nos bonnets',
-    'home'   => 'Bienvenue !',
-    'login'  => 'Connexion',
-    'logout' => '',
-    'cart'   => 'Votre panier',
+    'list'    => 'Tous nos bonnets',
+    'home'    => 'Bienvenue !',
+    'login'   => 'Connexion',
+    'logout'  => '',
+    'cart'    => 'Votre panier',
+    'contact' => 'Nous contacter',
 ];
 
 $page = 'home';

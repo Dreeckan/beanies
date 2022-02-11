@@ -39,6 +39,9 @@ if (!isset($pageTitle)) {
                     <li class="nav-item">
                         <a class="nav-link" href="?page=cart">Panier</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?page=contact">Contact</a>
+                    </li>
                     <?php
                     if (isset($_SESSION['username'])) {
                     ?>
