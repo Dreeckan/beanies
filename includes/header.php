@@ -24,32 +24,32 @@ if (!isset($pageTitle)) {
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">Mes beaux bonnets</a>
+            <a class="navbar-brand" href="?page=home">Mes beaux bonnets</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
+                        <a class="nav-link active" aria-current="page" href="?page=home">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="list.php">Liste</a>
+                        <a class="nav-link" href="?page=list">Liste</a>
                     </li>
                     <?php
                     if (isset($_SESSION['username'])) {
                     ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.php"><?= $_SESSION['username']; ?></a>
+                            <a class="nav-link" href="?page=login"><?= $_SESSION['username']; ?></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="logout.php">Déconnexion</a>
+                            <a class="nav-link" href="?page=logout">Déconnexion</a>
                         </li>
                     <?php
                     } else {
                     ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.php">Connexion</a>
+                            <a class="nav-link" href="?page=login">Connexion</a>
                         </li>
                     <?php
                     }

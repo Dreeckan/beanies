@@ -1,9 +1,3 @@
-<?php
-$pageTitle = "Tous nos bonnets";
-
-require_once 'includes/header.php';
-?>
-
 <table>
     <thead>
         <tr>
@@ -23,7 +17,3 @@ require_once 'includes/header.php';
         ?>
     </tbody>
 </table>
-
-<?php
-include 'includes/footer.php';
-?>
