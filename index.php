@@ -1,33 +1,25 @@
 <?php
-require_once 'includes/header.php';
-?>
+$pages = [
+    'list'   => 'Tous nos bonnets',
+    'home'   => 'Bienvenue !',
+    'login'  => 'Connexion',
+    'logout' => '',
+];
 
-<div class="d-flex justify-content-evenly">
-    <?php
-    $i = 0;
-    foreach ($beanies as $id => $beanie) {
-        $i++;
-        if ($i > 3) {
-            break;
-        }
+$page = 'home';
 
-        // afficher un bonnet
-    ?>
-        <div class="card m-2">
-            <img src="img/<?= $beanie['image'] ?>" class="card-img-top" alt="<?= $beanie['image'] ?>">
-            <div class="card-body">
-                <h5 class="card-title"><?= $beanie['name']; ?></h5>
-                <p class="card-text"><?= $beanie['description']; ?></p>
-                <a href="#" class="btn btn-primary">Ajouter au panier</a>
-            </div>
-        </div>
-    <?php
-    }
-    ?>
-</div>
-<div class="d-flex justify-content-evenly">
-    <a href="list.php" class="btn btn-primary">Voir tous les produits</a>
-</div>
-<?php
-include 'includes/footer.php';
-?>
+if (isset($_GET['page']) && in_array($_GET['page'], $pages)) {
+    $page = $_GET['page'];
+}
+
+$pageTitle = $pages[$page];
+
+ob_start();
+
+include_once 'includes/header.php';
+
+include_once 'pages/' . $page . '.php';
+
+include_once 'includes/footer.php';
+
+ob_end_flush();

@@ -1,8 +1,4 @@
 <?php
-$pageTitle = "Connexion";
-
-require_once 'includes/header.php';
-
 $errors = [];
 
 if (isset($_POST['username'])) {
@@ -22,7 +18,7 @@ if (isset($_POST['username'])) {
     if (empty($errors)) {
         $_SESSION['username'] = $_POST['username'];
 
-        header('Location: index.php?login=success');
+        header('Location: ?login=success');
     }
 }
 ?>
@@ -50,7 +46,3 @@ foreach ($errors as $error) {
     </div>
     <button type="submit" class="btn btn-primary">Valider</button>
 </form>
-
-<?php
-include 'includes/footer.php';
-?>
