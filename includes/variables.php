@@ -28,3 +28,5 @@ $beanies = [
         "image"       => 'the-yukon-brim-olive.jpg',
     ],
 ];
+
+$defaultPassword = 'toto';
