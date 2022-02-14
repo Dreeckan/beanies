@@ -1,26 +1,23 @@
 <?php
-$pages = [
-    'list'    => 'Tous nos bonnets',
-    'home'    => 'Bienvenue !',
-    'login'   => 'Connexion',
-    'logout'  => '',
-    'cart'    => 'Votre panier',
-    'contact' => 'Nous contacter',
-];
-
-$page = 'home';
-
-if (isset($_GET['page']) && array_key_exists($_GET['page'], $pages)) {
-    $page = $_GET['page'];
-}
-
-$pageTitle = $pages[$page];
 
 ob_start();
 
 include_once 'includes/header.php';
 
-include_once 'pages/' . $page . '.php';
+$pagesHandler = new PagesHandler([
+    new Page('list', 'Tous nos bonnets'),
+    new Page('home', 'Bienvenue !'),
+    new Page('login', 'Connexion'),
+    new Page('logout', ''),
+    new Page('cart', 'Votre panier'),
+    new Page('contact', 'Nous contacter'),
+]);
+
+$page = $pagesHandler->getCurrent($_GET);
+
+$pageTitle = $page->getTitle();
+
+include_once 'pages/' . $page->getFileName() . '.php';
 
 include_once 'includes/footer.php';
 

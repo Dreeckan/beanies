@@ -1,0 +1,101 @@
+<?php
+
+class Contact
+{
+    protected ?string $subject = '';
+
+    protected ?string $email = '';
+
+    protected ?string $content = '';
+
+    protected array $errors = [];
+
+    public function __construct(array $postData)
+    {
+        if (isset($postData['subject'])) {
+            $this->setSubject(trim($postData['subject']));
+        }
+        if (isset($postData['email'])) {
+            $this->setEmail(trim($postData['email']));
+        }
+        if (isset($postData['content'])) {
+            $this->setContent(trim($postData['content']));
+        }
+    }
+
+    public function getSubject(): ?string
+    {
+        return $this->subject;
+    }
+
+    public function setSubject(?string $subject): self
+    {
+        $this->subject = $subject;
+
+        if (empty($subject)) {
+            $this->errors[] = "Veuillez entrer un sujet";
+        } elseif (strlen($subject) <= 10) {
+            $this->errors[] = "Veuillez entrer un sujet plus long (10 caractères minimum)";
+        }
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
+
+        if (empty($email)) {
+            $this->errors[] = "Veuillez entrer un e-mail";
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $this->errors[] = "Veuillez entrer un e-mail valide";
+        }
+
+        return $this;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    public function setContent(?string $content): self
+    {
+        $this->content = $content;
+
+        if (empty($content)) {
+            $this->errors[] = "Veuillez entrer un message";
+        } elseif (strlen($content) <= 100) {
+            $this->errors[] = "Veuillez entrer un message plus long (100 caractères minimum)";
+        }
+
+        return $this;
+    }
+
+    public function isSubmitted(): bool
+    {
+        if (
+            !empty($this->getContent())
+            || !empty($this->getSubject())
+            || !empty($this->getEmail())
+        ) {
+            return true;
+        }
+        return false;
+    }
+
+    public function isValid(): bool
+    {
+        return empty($this->errors);
+    }
+
+    public function getErrors(): array
+    {
+        return $this->errors;
+    }
+}
