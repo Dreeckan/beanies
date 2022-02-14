@@ -1,42 +1,9 @@
 <?php
 
-if (!isset($_SESSION['cart'])) {
-    $_SESSION['cart'] = [];
-}
+$cart = new Cart();
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $cart = $_SESSION['cart'];
-
-    $mode = 'plus';
-    if (isset($_GET['mode'])) {
-        $mode = $_GET['mode'];
-    }
-
-    if (!isset($cart[$id])) {
-        $cart[$id] = 0;
-    }
-
-    switch ($mode) {
-        case 'plus':
-            $cart[$id]++;
-            break;
-        case 'min':
-            $cart[$id]--;
-            break;
-        case 'delete':
-            $cart[$id] = 0;
-            break;
-    }
-
-    if ($cart[$id] <= 0) {
-        unset($cart[$id]);
-    }
-
-    $_SESSION['cart'] = $cart;
-    header('Location: ?page=cart');
-} elseif (isset($_GET['mode']) && $_GET['mode'] == 'empty') {
-    $_SESSION['cart'] = [];
+$isCartModified = $cart->handle($_GET);
+if ($isCartModified) {
     header('Location: ?page=cart');
 }
 
@@ -55,7 +22,7 @@ if (isset($_GET['id'])) {
     <tbody>
         <?php
         $total = 0.0;
-        foreach ($_SESSION['cart'] as $id => $quantity) {
+        foreach ($cart->getContent() as $id => $quantity) {
             /** @var Beanie|null $beanie */
             $beanie = findById($beanies, $id);
             if (empty($beanie)) {
