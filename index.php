@@ -1,8 +1,6 @@
 <?php
 
-ob_start();
-
-include_once 'includes/header.php';
+require_once 'includes/autoload.php';
 
 $pagesHandler = new PagesHandler([
     new Page('list', 'Tous nos bonnets'),
@@ -15,7 +13,9 @@ $pagesHandler = new PagesHandler([
 
 $page = $pagesHandler->getCurrent($_GET);
 
-$pageTitle = $page->getTitle();
+ob_start();
+
+include_once 'includes/header.php';
 
 include_once 'pages/' . $page->getFileName() . '.php';
 

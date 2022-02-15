@@ -22,12 +22,18 @@ if ($isCartModified) {
     <tbody>
         <?php
         $total = 0.0;
+        $id = null;
+        $beanieFactory = new BeanieFactory();
+        $statement = $db->prepare('SELECT * FROM beanie WHERE id = :id');
+        $statement->bindParam(':id', $id);
+
         foreach ($cart->getContent() as $id => $quantity) {
-            /** @var Beanie|null $beanie */
-            $beanie = findById($beanies, $id);
-            if (empty($beanie)) {
+            $statement->execute();
+            $beanieData = $statement->fetch();
+            if (empty($beanieData)) {
                 continue;
             }
+            $beanie = $beanieFactory->create($beanieData);
             $price = $beanie->getPrice() * $quantity;
             $total += $price;
         ?>
