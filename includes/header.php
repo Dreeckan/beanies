@@ -1,13 +1,14 @@
 <?php
 session_start();
 
-require_once 'autoload.php';
 require_once 'config.inc.php';
 require_once 'variables.php';
 require_once 'functions.php';
 
-if (!isset($pageTitle)) {
+if (empty($page->getTitle())) {
     $pageTitle = "Bienvenue !";
+} else {
+    $pageTitle = $page->getTitle();
 }
 
 ?>

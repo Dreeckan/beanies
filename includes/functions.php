@@ -22,17 +22,6 @@ function formatPrice(float $price): string
     return number_format($price, 2, ',', ' ');
 }
 
-function findById(array $beanies, int $id): ?Beanie
-{
-    foreach ($beanies as $beanie) {
-        if ($beanie->getId() == $id) {
-            return $beanie;
-        }
-    }
-
-    return null;
-}
-
 /**
  * Affiche une ligne (table HTML) d'un tableau de bonnets
  *

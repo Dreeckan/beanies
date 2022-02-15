@@ -2,6 +2,12 @@
 $contact = new Contact($_POST);
 
 if ($contact->isSubmitted() && $contact->isValid()) {
+    $statement = $db->prepare('INSERT INTO contact (subject, email, content) VALUES (:subject, :email, :content)');
+    $statement->execute([
+        ':subject' => $contact->getSubject(),
+        ':email'   => $contact->getEmail(),
+        ':content' => $contact->getContent(),
+    ]);
 ?>
     <div class="alert alert-success" role="alert">
         Message envoyé

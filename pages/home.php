@@ -1,12 +1,16 @@
+<?php
+
+/** @var PDOStatement $statement */
+$statement = $db->query('SELECT * FROM beanie ORDER BY price ASC LIMIT 0, 3');
+$beanies = $statement->fetchAll();
+
+$beanieFactory = new BeanieFactory();
+?>
+
 <div class="d-flex justify-content-evenly">
     <?php
-    $i = 0;
-    foreach ($beanies as $beanie) {
-        $i++;
-        if ($i > 3) {
-            break;
-        }
-
+    foreach ($beanies as $beanieData) {
+        $beanie = $beanieFactory->create($beanieData);
         // afficher un bonnet
     ?>
         <div class="card m-2">
