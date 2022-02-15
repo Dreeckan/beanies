@@ -1,5 +1,7 @@
 <?php
 
+use Model\Cart;
+
 $cart = new Cart();
 
 $isCartModified = $cart->handle($_GET);

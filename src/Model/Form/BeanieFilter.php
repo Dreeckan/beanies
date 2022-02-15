@@ -1,5 +1,9 @@
 <?php
 
+namespace Model\Form;
+
+use Model\Beanie;
+
 class BeanieFilter
 {
     protected array $beanies = [];

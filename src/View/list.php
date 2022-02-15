@@ -1,4 +1,8 @@
 <?php
+
+use Model\Beanie;
+use Model\Form\BeanieFilter;
+
 $beaniesFilter = new BeanieFilter($beanies, $_POST);
 
 ?>

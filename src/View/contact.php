@@ -1,4 +1,7 @@
 <?php
+
+use Model\Contact;
+
 $contact = new Contact($_POST);
 
 if ($contact->isSubmitted() && $contact->isValid()) {

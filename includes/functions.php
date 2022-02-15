@@ -1,5 +1,7 @@
 <?php
 
+use Model\Beanie;
+
 /**
  * @param float $price
  * @return float
