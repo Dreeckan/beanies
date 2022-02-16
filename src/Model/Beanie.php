@@ -1,5 +1,7 @@
 <?php
 
+namespace Model;
+
 class Beanie
 {
     const AVAILABLE_SIZES = [

@@ -1,5 +1,9 @@
 <?php
 
+namespace Service;
+
+use Model\Page;
+
 class PagesHandler
 {
     protected array $pages;

@@ -1,5 +1,7 @@
 <?php
 
+namespace Model;
+
 class Cart
 {
     protected $content = [];

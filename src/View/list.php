@@ -1,15 +1,6 @@
 <?php
-$statement = $db->query('SELECT * FROM beanie ORDER BY price');
-$beaniesData = $statement->fetchAll();
 
-$beanieFactory = new BeanieFactory();
-$beanies = [];
-foreach ($beaniesData as $beanieData) {
-    $beanies[] = $beanieFactory->create($beanieData);
-}
-
-$beaniesFilter = new BeanieFilter($beanies, $_POST);
-
+use Model\Beanie;
 ?>
 <form action="" method="post">
     <div class="mb-3">

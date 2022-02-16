@@ -1,5 +1,9 @@
 <?php
 
+namespace Service;
+
+use Model\Beanie;
+
 class BeanieFilter
 {
     protected array $beanies = [];

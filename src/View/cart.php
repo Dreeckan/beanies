@@ -1,14 +1,3 @@
-<?php
-
-$cart = new Cart();
-
-$isCartModified = $cart->handle($_GET);
-if ($isCartModified) {
-    header('Location: ?page=cart');
-}
-
-?>
-
 <table class="table">
     <thead>
         <tr>
@@ -22,18 +11,9 @@ if ($isCartModified) {
     <tbody>
         <?php
         $total = 0.0;
-        $id = null;
-        $beanieFactory = new BeanieFactory();
-        $statement = $db->prepare('SELECT * FROM beanie WHERE id = :id');
-        $statement->bindParam(':id', $id);
 
         foreach ($cart->getContent() as $id => $quantity) {
-            $statement->execute();
-            $beanieData = $statement->fetch();
-            if (empty($beanieData)) {
-                continue;
-            }
-            $beanie = $beanieFactory->create($beanieData);
+            $beanie = $beanies[$id];
             $price = $beanie->getPrice() * $quantity;
             $total += $price;
         ?>
