@@ -1,5 +1,9 @@
 <?php
 
+namespace Service;
+
+use Model\Beanie;
+
 class BeanieFactory
 {
     public function create(array $beanieData): Beanie

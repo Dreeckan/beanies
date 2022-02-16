@@ -1,3 +1,0 @@
-<?php
-
-$defaultPassword = 'toto';

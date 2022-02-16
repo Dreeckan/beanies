@@ -1,5 +1,7 @@
 <?php
 
+namespace Model;
+
 class Contact
 {
     protected ?int $id;
